@@ -1,0 +1,7 @@
+{
+	"name": "Biblioteca",
+	"dockerFile": "Dockerfile",
+	"appPort": 3000,
+	"workspaceFolder": "usr/src/app",
+	"shutdownAction":"none"
+}
