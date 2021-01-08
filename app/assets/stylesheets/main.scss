@@ -1,13 +1,12 @@
 /*========= Importando hojas de estilo =========*/
+/* Bootstrap 3.3.7 */
+/* @import url('./bootstrap.min.css'); */
 /* Material desing for Bootstrap */
-@import url('./bootstrap-material-design.min.css');
-@import url('./ripples.min.css');
-/* Sweet Alert 2 */
-@import url('./sweetalert2.css');
+/* @import url('./bootstrap-material-design.min.css'); */
+/* @import url('./ripples.min.css'); */
 /* Malihu jQuery custom content scroller 3.1.5 */
-@import url('./jquery.mCustomScrollbar.css');
+/* @import url('./jquery.mCustomScrollbar.css'); */
 /* Material Design Iconic Font 2.2.0 */
-@import url('./material-design-iconic-font.min.css');
 /*============ Fonts */
 @font-face {
     font-family: 'RobotoCondensedLight';
@@ -42,6 +41,9 @@ body, html{
 	font-size: 16px;
 	font-family: 'RobotoCondensed';
 	overflow: hidden;
+}
+body {
+	position: static !important;
 }
 .full-box{
 	margin: 0;

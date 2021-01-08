@@ -12,7 +12,10 @@ require('jquery')
 require('popper.js')
 require('bootstrap/dist/js/bootstrap.min')
 
-require('./template/sweetalert2.min')
+const Swal = require('sweetalert2/dist/sweetalert2.min.js')
+require('sweetalert2/dist/sweetalert2.min.css')
+window.swal = Swal
+
 require('./template/material.min')
 require('./template/ripples.min')
 require('./template/jquery.mCustomScrollbar.concat.min')
