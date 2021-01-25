@@ -1,0 +1,17 @@
+<% content_for :title do %>
+New Admin
+<% end %>
+
+<%= render partial: 'header' %>
+
+<!-- Panel nuevo administrador -->
+<div class="container-fluid">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO ADMINISTRADOR</h3>
+		</div>
+		<div class="panel-body">
+			<%= render 'form', admin: @admin %>
+		</div>
+	</div>
+</div>

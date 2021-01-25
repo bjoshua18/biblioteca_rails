@@ -7,16 +7,13 @@ module ApplicationHelper
 	def sweet_alert(data)
 		case data[:alert]
 		when 'simple'
-			"<script>
-					swal.fire(
+			"swal.fire(
 						'#{data[:title]}',
 						'#{data[:text]}',
 						'#{data[:icon]}'
-					)
-				</script>"
+					)"
 		when 'reload'
-			"<script>
-					swal.fire({
+			"swal.fire({
 						title: '#{data[:title]}',
 						text: '#{data[:text]}',
 						icon: '#{data[:icon]}',
@@ -25,11 +22,9 @@ module ApplicationHelper
 						if (result.isConfirmed) {
 							location.reload()
 						}
-					})
-				</script>"
+					})"
 		when 'clear'
-			"<script>
-					swal.fire({
+			"swal.fire({
 						title: '#{data[:title]}',
 						text: '#{data[:text]}',
 						icon: '#{data[:icon]}',
@@ -38,8 +33,7 @@ module ApplicationHelper
 						if (result.isConfirmed) {
 							$('.AjaxForm')[0].reset()
 						}
-					})
-				</script>"
+					})"
 		end
 	end
 end

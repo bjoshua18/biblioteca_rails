@@ -61,7 +61,9 @@
 				</a>
 				<ul class="list-unstyled full-box">
 					<li>
-						<a href="admin.html"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Administradores</a>
+						<%= link_to admins_path do %>
+							<i class="zmdi zmdi-account zmdi-hc-fw"></i> Administradores
+						<% end %>
 					</li>
 					<li>
 						<a href="client.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Clientes</a>

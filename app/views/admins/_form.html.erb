@@ -1,0 +1,151 @@
+<%= form_with(model: admin, html: {class: 'FormularioAjax', autocomplete: 'off', enctype: 'multipart/form-data', data: {form: 'save'}}) do |form| %>
+	<% if admin.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+			<ul>
+				<% admin.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<fieldset>
+		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información personal</legend>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group label-floating">
+						<%= form.label :dni, 'DNI/CEDULA *', class: 'control-label' %>
+						<%= form.text_field :dni, class: 'form-control', pattern: '[0-9]{1,30}', maxlength: 30, required: true %>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group label-floating">
+						<%= form.label :name, 'Nombre *', class: 'control-label' %>
+						<%= form.text_field :name, class: 'form-control', pattern: '[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,30}', maxlength: 30, required: true %>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group label-floating">
+						<%= form.label :lastname, 'Apellidos *', class: 'control-label' %>
+						<%= form.text_field :lastname, class: 'form-control', pattern: '[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,30}', maxlength: 30, required: true %>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group label-floating">
+						<%= form.label :phone, 'Teléfono', class: 'control-label' %>
+						<%= form.text_field :phone, class: 'form-control', pattern: '[0-9+]{1,15}', maxlength: 15 %>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group label-floating">
+						<%= form.label :address, 'Dirección', class: 'control-label' %>
+						<%= form.text_area :address, class: 'form-control', rows: 2, maxlength: 100 %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<br/>
+
+	<fieldset>
+		<legend><i class="zmdi zmdi-key"></i> &nbsp; Datos de la cuenta</legend>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group label-floating">
+						<%= form.label :username, 'Nombre de usuario *', class: 'control-label' %>
+						<%= form.text_field :username, class: 'form-control', name: 'user[username]', pattern: '[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,15}', maxlength: 15, required: true %>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group label-floating">
+						<%= form.label :password, 'Contraseña *', class: 'control-label' %>
+						<%= form.password_field :password, class: 'form-control', name: 'user[password]', maxlength: 70, required: true %>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group label-floating">
+						<%= form.label :password_confirmation, 'Confirmar contraseña *', class: 'control-label' %>
+						<%= form.password_field :password_confirmation, class: 'form-control', name: 'user[password_confirmation]', maxlength: 70, required: true %>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group label-floating">
+						<%= form.label :email, 'Email *', class: 'control-label' %>
+						<%= form.email_field :email, class: 'form-control', name: 'user[email]', maxlength: 50, required: true %>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+						<%= form.label :gender, class: 'control-label' %>
+						<div class="radio radio-primary">
+							<label>
+								<%= form.radio_button :gender, 'Masculino', checked: true, name: 'user[gender]' %>
+								<i class="zmdi zmdi-male-alt"></i> &nbsp; Masculino
+							</label>
+						</div>
+						<div class="radio radio-primary">
+							<label>
+								<%= form.radio_button :gender, 'Femenino', name: 'user[gender]' %>
+								<i class="zmdi zmdi-female"></i> &nbsp; Femenino
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<br/>
+
+	<fieldset>
+		<legend><i class="zmdi zmdi-star"></i> &nbsp; Nivel de privilegios</legend>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<p class="text-left">
+						<div class="label label-success">Nivel 1</div> Control total del sistema
+					</p>
+					<p class="text-left">
+						<div class="label label-primary">Nivel 2</div> Permiso para registro y actualización
+					</p>
+					<p class="text-left">
+						<div class="label label-info">Nivel 3</div> Permiso para registro
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="radio radio-primary">
+						<label>
+							<%= form.radio_button :privilege, '1', name: 'user[privilege]' %>
+							<i class="zmdi zmdi-star"></i> &nbsp; Nivel 1
+						</label>
+					</div>
+					<div class="radio radio-primary">
+						<label>
+							<%= form.radio_button :privilege, '2', name: 'user[privilege]' %>
+							<i class="zmdi zmdi-star"></i> &nbsp; Nivel 2
+						</label>
+					</div>
+					<div class="radio radio-primary">
+						<label>
+							<%= form.radio_button :privilege, '3', name: 'user[privilege]', checked: true %>
+							<i class="zmdi zmdi-star"></i> &nbsp; Nivel 3
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<p class="text-center" style="margin-top: 20px;">
+		<%= button_tag type: 'submit', class: 'btn btn-info btn-raised btn-sm' do %>
+			<i class="zmdi zmdi-floppy"></i> Guardar
+		<% end %>
+	</p>
+
+	<div id="RespuestaAjax"></div>
+<% end %>

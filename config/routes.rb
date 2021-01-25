@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/home', to: 'home#index'
 
+  resources :admins, only: [:index, :new, :create]
+
   # Error paths
   get '/*path', to: 'errors#show', code: 404, as: :not_found
 end
